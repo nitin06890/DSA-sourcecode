@@ -46,10 +46,10 @@ public:
             return 1;
         int n = arr.size();
         dp.resize(n + 1, vector<int>(sum + 1));
-        for (int i = 0; i < n + 1; i++)
-            dp[i][0] = 0;
+        for (int i = 0; i < sum + 1; i++)
+            dp[0][i] = 0;
         for (int j = 0; j < n + 1; j++)
-            dp[0][j] = 1;
+            dp[j][0] = 1;
 
         for (int i = 1; i < n + 1; i++)
         {
