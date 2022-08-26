@@ -24,8 +24,8 @@ class Solution
 public:
     int longestPalinSubseq(string A)
     {
-        string B = string(A.rbegin(), A.rend());
-        // reverse(B.begin(), B.end());
-        return (A, B, A.length(), B.length());
+        string B = A;
+        reverse(B.begin(), B.end());
+        return lcs(A, B, A.length(), B.length());
     }
 };
