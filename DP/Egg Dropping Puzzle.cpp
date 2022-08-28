@@ -18,7 +18,23 @@ class Solution
         int mn = INT_MAX;
         for (int k = 1; k <= f; k++)
         {
-            int tempans = 1 + max(solve(e, f - k), solve(e - 1, k - 1));
+            // int tempans = 1 + max(solve(e, f-k), solve(e-1, k-1));
+            int low, high;
+            if (dp[e][f - k] != 0)
+                low = dp[e][f - k];
+            else
+            {
+                low = solve(e, f - k);
+                dp[e][f - k] = low;
+            }
+            if (dp[e - 1][k - 1] != 0)
+                high = dp[e - 1][k - 1];
+            else
+            {
+                high = solve(e - 1, k - 1);
+                dp[e - 1][k - 1] = high;
+            }
+            int tempans = 1 + max(low, high);
             mn = min(mn, tempans);
         }
         return dp[e][f] = mn;
