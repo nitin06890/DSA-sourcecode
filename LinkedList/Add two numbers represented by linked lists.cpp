@@ -40,7 +40,7 @@ public:
         Node *head = new Node(0), *curr = head;
         int carry = 0;
 
-        while (first != NULL || second != NULL || carry == 1)
+        while (first != NULL || second != NULL || carry > 0)
         {
             int sum = 0;
             if (first)
